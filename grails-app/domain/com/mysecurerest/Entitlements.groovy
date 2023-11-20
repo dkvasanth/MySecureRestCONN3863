@@ -2,24 +2,20 @@ package com.mysecurerest
 
 import grails.rest.Resource
 
-@Resource(uri='/api/group_memberships',formats=['json', 'xml'])
+@Resource(uri='/api/groups',formats=['json', 'xml'])
 class Entitlements {
-    long id
-    String accountname
-    String entitlementid
+    String entitlementname
     static mapping = {
         version false
         table 'Entitlements'
-        id column: 'id', generator: 'increment'
+        id column: 'entitlementid', generator: 'increment'
         //id column: 'id', generator:'CustomGenerator',   unique:"true"
-
+        columns {
+            entitlementname column: 'entitlementname'
+        }
     }
 
     static constraints = {
-        accountname blank: false
-        entitlementid blank: false
-        id blank: false
-
-
+        entitlementname blank: false
     }
 }

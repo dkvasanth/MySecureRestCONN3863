@@ -8,7 +8,6 @@ class Users implements Serializable {
 
     String firstname
     String lastname
-    String id
     String status
     String email
     String accountname
@@ -17,14 +16,14 @@ class Users implements Serializable {
         version false
         table 'users'
         //id column: 'id', generator: 'assigned'
-        id column: 'id', generator:'CustomGenerator',   unique:"true"
+        //id column: 'userid', generator:'CustomGenerator',   unique:"true"
+        id column: 'userid', generator: 'increment'
 
     }
 
     static constraints = {
         firstname blank: false
         lastname blank: false
-        id blank: false
         status blank: false
         email blank: false
 
