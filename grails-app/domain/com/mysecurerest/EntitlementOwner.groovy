@@ -5,23 +5,23 @@ import grails.rest.Resource
 @Resource(uri='/api/entitlementowners',formats=['json', 'xml'])
 class EntitlementOwner {
 
-    static belongsTo = [entitlementid: Entitlements, userid:Users]
-    long entitlementid
-    long userid
+    static belongsTo = [entitlementid: Entitlements, email:Users]
+    String entitlementid
+    String email
     static mapping = {
         version false
-        table 'EntitlementOwner'
-        id column: 'entownerid', generator: 'increment'
+        table 'ENTITLEMENTOWNER'
+        //id column: 'entownerid', generator: 'increment'
         //id column: 'id', generator:'CustomGenerator',   unique:"true"
         columns {
-            entitlementid column: 'entitlementid'
-            userid column: 'userid'
+            entitlementid column: 'ENTITLEMENTID', type: 'text'
+            email column: 'EMAIL', type: 'text'
         }
     }
 
     static constraints = {
         entitlementid blank: false
-        userid blank: false
+        email blank: false
 
     }
 }

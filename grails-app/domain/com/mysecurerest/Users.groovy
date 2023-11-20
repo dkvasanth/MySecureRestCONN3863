@@ -10,14 +10,25 @@ class Users implements Serializable {
     String lastname
     String status
     String email
+
+    String getAccountname() {
+        return firstname + " " + lastname
+    }
     String accountname
 
     static mapping = {
         version false
-        table 'users'
+        table 'USERS'
         //id column: 'id', generator: 'assigned'
         //id column: 'userid', generator:'CustomGenerator',   unique:"true"
-        id column: 'userid', generator: 'increment'
+        columns{
+            email column: 'EMAIL', type: 'text'
+            firstname column: 'FIRSTNAME', type: 'text'
+            lastname column: 'LASTNAME', type: 'text'
+            status column: 'STATUS', type: 'text'
+            accountname column: 'ACCOUNTNAME', type: 'text'
+        }
+
 
     }
 
@@ -26,7 +37,7 @@ class Users implements Serializable {
         lastname blank: false
         status blank: false
         email blank: false
-
+        accountname blank: false
     }
 
 }
